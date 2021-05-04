@@ -1,0 +1,142 @@
+/* Global Styles */
+:root {
+    --brand-red: #8C1E44;
+    --brand-blue: #032096;
+    --primary-color: #e74c3c;
+    --dark-color: #343a40;
+    --light-color: #f4f4f4;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+  }
+  
+  * {    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    letter-spacing: 1px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-main {
+    background-color: var(--brand-blue);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 0;
+}
+
+.section-main:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(3, 32, 150,0.7);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.main-left {
+    width: 15%;
+    background-color: var(--brand-red); 
+    transition: width 1s ease-in-out;
+    animation: myfirst 1s ease-in-out;
+    text-align: right;
+    padding-top: 30px;
+    padding-right: 15px;
+}
+
+.main-right {   
+  padding: 100px;
+  position: relative;
+  width: 85%;
+}
+
+.main-title {
+    font-size: 45px;
+    color: #F7B900;
+    margin-bottom: 20px;
+}
+
+.main-des {
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 1.7;
+}
+
+@keyframes myfirst {
+  0%   { width: 100%;}  
+}
+
+@keyframes myfirst2 {
+    0%   {         
+        width: 0px;
+    }     
+    
+}
+
+
+  /* navbar */
+
+  /* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;    
+  }
+  
+.sidenav a, .dropdown-btn {
+    padding: 12px 0;
+    text-decoration: none;
+    font-size: 24px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+  }  
+
+  .sidenav a.active {
+    background-color: #F7B900;
+    color: #8C1E44;
+  }
+  
+  .dropdown-container {
+    display: none;
+    background-color: #F7B900;
+  }
+
+  .sidenav a.nav-activ {
+      color: #F7B900;
+  }
+  
+    
+
+
+
+  /*  accordian history */
+
+
+ 
+ 

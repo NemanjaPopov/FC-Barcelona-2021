@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.card {
+    position: relative;
+    border-radius: 13px;
+    height: 450px;
+    width: 350px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 40px -5px black;
+    overflow: hidden;    
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+svg#curve {
+    position: absolute;
+    fill: white;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    height: 450px;
+}
+
+.info {
+    position: absolute;
+	font-family: Inconsolata;
+    transform: translateY(200px);
+    bottom: -100px;
+    width: 100%;
+
+    transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.card:hover .info {
+    bottom: 30px;
+    transform: translateY(0px);
+    z-index: 5;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 5px;
+}
+
+.job {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.info-wrapp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+}
+.job span {
+    display: block;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.broj-dresa {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    top: 10px;
+    right: 20px;
+    width: 45px;
+    height: 45px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+    </style>
+</head>
+<body>
+    
+    <div id="curve" class="card" style="background-image: url(img/Arnau_Tenas.webp)">
+        <div class="broj-dresa">36</div>
+        <div class="footer">            
+            <svg id="curve">
+                <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
+                <rect id="dummyRect" x="0" y="0" height="450" width="400"
+              fill="transparent" />
+                <!-- slide up-->
+                <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
+                <!-- slide up and curve in -->
+                <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
+                <!-- slide down and curve in -->
+                <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
+                <!-- slide down and curve out -->
+                <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
+                <!-- curve in -->
+                <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+    
+                <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
+            </svg>
+            
+        </div>
+        <div class="info">
+            <div class="info-wrapp">
+                <div class="job">pozicija: <span>Goalkeeper</span></div>
+                <div class="job">Nacionalnost: <span> <img src="img/flag_spain.gif" alt="" width="21"></span></div>
+                <div class="job">Goidina rodjenja: <span>30/05/2001</span></div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="info2">
+        
+        <div class="name" style="text-align: center; padding-top: 20px; font-size: 21px;">Arnau Tenas</div>
+    </div>
+</body>
+</html>

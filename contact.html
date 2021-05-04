@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <title>Barcelona FC - kontakt</title> 
+    
+</head>
+<body>
+    <div class="page">
+        <!-- section main -->
+        <div id="main" class="section-main" style="background-image: url('img/stadion.png');">
+            <div class="social-media-icons">
+                <img src="img/facebook.png" alt="facebook">
+                <img src="img/twitter.png" alt="twitter">
+                <img src="img/instagram.png" alt="instagram">
+                <img src="img/linkedin.png" alt="linkedin">
+                <img src="img/google-plus.png" alt="google plus">
+                <img src="img/vk.png" alt="vk">
+            </div>   
+            <div class="main-left">
+                <a href="index.html">
+                    <img class="logo" src="img/logo.png" alt="logo">
+                </a>
+                <div class="sidenav">
+                    <a href="o_klubu.html" class="dropdown-btn">O klubu</a>
+                    <div class="dropdown-container">
+                        <a class="d-link active" href="#">Istorijat kluba</a>
+                        <a class="d-link" href="#grb-dres">Grb i dres</a>
+                        <a class="d-link" href="#stadion">Stadion</a>
+                        <a class="d-link" href="#trofeji">Trofeji</a>
+                        <a class="d-link" href="#rekordi">Rekordi</a>
+                    </div>
+                    <a href="tim.html">Tim / Uprava</a>                    
+                    <a href="vesti.html" >Aktuelne vesti</a>
+                    <a class="nav-activ">Kontakt</a>
+                </div>
+                <footer>
+                   <p class="text-footer"> Copyright &copy; 2021 NemanjaPopov. <span>All right reserved.</span></p>
+                </footer>
+            </div>
+            <div class="main-right">
+                    <h2 class="main-title">Kontakt</h2>
+                    <!-- contact form -->
+                    <article class="contact-form">
+                        <form class="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="name"
+                            class="form-control"
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="email"
+                            class="form-control"
+                        />
+                        <textarea
+                            name="message"
+                            rows="5"
+                            class="form-control"
+                            placeholder="message"
+                        ></textarea>
+                        <button type="submit" class="main-btn">Send</button>
+                        </form>
+                    </article>
+                    </div>
+                </section>
+                <!-- end of contact -->
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.querySelector(".dropdown-btn");
+        
+        dropdown.addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        })
+
+        var el = document.querySelectorAll(".d-link");
+        
+        for (let i = 0; i < el.length; i++) {
+            el[i].addEventListener("click", function() {
+                // skine na svaki active              
+                for (c=0; c < el.length; c++) {
+                    el[c].classList.remove("active");
+                }
+                // i tek onda dodaje na onaj click active
+                el[i].classList.add("active");
+            });
+        }
+    </script>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+
+      // da se vrti u krug
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      
+      // petlja
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+    
+</body>
+</html>
